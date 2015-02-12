@@ -1,5 +1,5 @@
 angular
-.module('jbAngularSelectable')
+.module('jbAngularSelectable', [])
 .factory('Selectable', SelectableFactory);
 
 function SelectableFactory() {
