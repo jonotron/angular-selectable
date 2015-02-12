@@ -1,0 +1,21 @@
+{
+  "name": "angular-selectable",
+  "version": "0.0.1",
+  "description": "An angular module for selecting things",
+  "main": "angular-selectable.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jonotron/angular-selectable.git"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": {
+    "name": "Jonathan Bowers",
+    "email": "jonotron@gmail.com"
+  },
+  "license": "MIT"
+}
