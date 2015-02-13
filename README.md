@@ -42,7 +42,7 @@ Use it in your templates
 <ul>
   <li ng-repeat="pet in pets"
     ng-click="selectable.select(pet)">
-    {{ pet }} <span ng-if="selectable.isSelected(pet)">pick me</span>
+    {{ pet }} <span ng-if="selectable.isSelected(pet)">picked me</span>
   </li>
 </ul>
 ```
