@@ -31,6 +31,15 @@ function SelectablesFactory() {
     }
   }
 
+  Selectables.prototype.toggle = function(obj) {
+    var pos = this.selectables.indexOf(obj);
+    if (pos >= 0) {
+      this.selectables.splice(pos, 1);
+    } else {
+      this.selectables.push(obj); 
+    }
+  }
+
   // this is likely inefficient as any digest cycle will cause this to be 
   // to be re-run, walking through the array each time
   Selectables.prototype.isSelected = function(obj) {
