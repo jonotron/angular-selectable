@@ -30,9 +30,9 @@ Inject the `Selectable` factory into your controllers and add expose it to your 
 
 ```js
 angular.module('MyApp')
-.controller('myController', function($scope, Selectable) {
+.controller('myController', function($scope, Selectables) {
   $scope.pets = ['dog', 'cat', 'gerbil', 'bird'];
-  $scope.selectable = new Selectable();
+  $scope.selectables = new Selectables();
 });
 ```
 
@@ -41,8 +41,8 @@ Use it in your templates
 ```html
 <ul>
   <li ng-repeat="pet in pets"
-    ng-click="selectable.select(pet)">
-    {{ pet }} <span ng-if="selectable.isSelected(pet)">picked me</span>
+    ng-click="selectables.select(pet)">
+    {{ pet }} <span ng-if="selectables.isSelected(pet)">picked me</span>
   </li>
 </ul>
 ```
