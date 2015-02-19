@@ -37,11 +37,18 @@ function SelectablesFactory() {
   }
 
   Selectables.prototype.toggle = function(obj) {
-    var pos = this.selectables.indexOf(obj);
-    if (pos >= 0) {
-      this.selectables.splice(pos, 1);
+    if (this.isSelected(obj)) {
+      this.deselect(obj)
     } else {
-      this.selectables.push(obj); 
+      this.select(obj); 
+    }
+  }
+
+  Selectables.prototype.toggleOnly = function(obj) {
+    if (this.isSelected(obj)) { 
+      this.deselect(obj);
+    } else {
+      this.selectOnly(obj); 
     }
   }
 
