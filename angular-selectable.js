@@ -14,6 +14,15 @@ function SelectablesFactory() {
     }
   }
 
+  Selectables.prototype.selectOnly = function(obj) {
+    // deselect anything already selected
+    for(var i = 0; i < this.selectables.length; i++) {
+      this.deselect(this.selectables[i]) 
+    }
+
+    this.select(obj);
+  }
+
   Selectables.prototype.selectIf = function(obj, shouldExecute) {
     if (shouldExecute) {
       this.select(obj);
