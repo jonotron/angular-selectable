@@ -62,6 +62,10 @@ function SelectablesFactory() {
     return this.selectables.length >= 1; 
   }
 
+  Selectables.prototype.getSelected = function() {
+    return this.selectables; 
+  }
+
   return Selectables;
 }
 
