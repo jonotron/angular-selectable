@@ -5,11 +5,7 @@ angular
 function SelectablesFactory() {
 
   function Selectables(selectables) {
-    if (typeof(selectables) === "undefined") {
-      this.selectables = []; 
-    } else {
-      this.selectables = selectables; 
-    }
+    this.selectables = typeof(selectables) === 'Array' ? selectables : [];
   }
   
   Selectables.prototype.select = function(obj) {
