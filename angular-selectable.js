@@ -51,6 +51,10 @@ function SelectablesFactory() {
     return this.selectables.indexOf(obj) >= 0; 
   }
 
+  Selectables.prototype.hasSelected = function() {
+    return this.selectables.length >= 1; 
+  }
+
   return Selectables;
 }
 
