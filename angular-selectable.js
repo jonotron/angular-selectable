@@ -23,9 +23,15 @@ function SelectablesFactory() {
     this.select(obj);
   }
 
-  Selectables.prototype.selectIf = function(obj, shouldExecute) {
-    if (shouldExecute) {
+  Selectables.prototype.selectIf = function(obj, isSelectable) {
+    if (isSelectable) {
       this.select(obj);
+    }
+  }
+
+  Selectables.prototype.selectOnlyIf = function(obj, isSelectable) {
+    if (isSelectable) {
+      this.selectOnly(obj);
     }
   }
 
@@ -50,6 +56,16 @@ function SelectablesFactory() {
     } else {
       this.selectOnly(obj); 
     }
+  }
+
+  Selectables.prototype.toggleIf = function(obj, isSelectable) {
+    if (!isSelectable) return;
+    this.toggle(obj);
+  }
+
+  Selectables.prototype.toggleOnlyIf = function(obj, isSelectable) {
+    if (!isSelectable) return;
+    this.toggleOnly(obj);
   }
 
   // this is likely inefficient as any digest cycle will cause this to be 
