@@ -47,6 +47,11 @@ Use it in your templates
 </ul>
 ```
 
+You can also try it out by serving up the root dir with your favourite static
+file server (e.g. [`http-server`](https://www.npmjs.com/package/http-server))
+and heading to `/example` (e.g. `http://localhost:8080/example` with 
+`http-server`)
+
 ## TODO
 
 * Documentation
