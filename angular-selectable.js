@@ -1,9 +1,10 @@
 angular
 .module('jbAngularSelectable', [])
-.factory('Selectables', SelectablesFactory);
+.factory('Selectables', SelectablesFactory)
+.directive('jbSelectables', SelectablesDirective)
+.directive('jbSelectable', SelectableDirective);
 
 function SelectablesFactory() {
-
   function Selectables(selectables) {
     this.selectables = typeof(selectables) === 'Array' ? selectables : [];
   }
@@ -85,3 +86,51 @@ function SelectablesFactory() {
   return Selectables;
 }
 
+function SelectablesDirective () {
+  return {
+    restrict: 'A',
+    // no isolate scope here as it prevents controller access to code
+    // inside directive
+    controllerAs: 'selectables',
+    controller: controller,
+    bindToController: true
+  }
+  
+  function controller ($scope, Selectables) {
+    var vm = this;
+    var selectables = new Selectables();
+    vm.selectables  = selectables.selectables;
+    vm.select       = selectables.select;
+    vm.selectOnly   = selectables.selectOnly;
+    vm.selectIf     = selectables.selectIf;
+    vm.selectOnlyIf = selectables.selectOnlyIf;
+    vm.deselect     = selectables.deselect;
+    vm.toggle       = selectables.toggle;
+    vm.toggleOnly   = selectables.toggleOnly;
+    vm.toggleIf     = selectables.toggleIf;
+    vm.toggleOnlyOf = selectables.toggleOnlyIf;
+    vm.isSelected   = selectables.isSelected;
+    vm.hasSelected  = selectables.hasSelected;
+    vm.getSelected  = selectables.getSelected;
+  }
+}
+
+function SelectableDirective () {
+  return {
+    restrict: 'A',
+    require: '^jbSelectables',
+    scope: {
+      selectable: '=jbSelectable'
+    },
+    link: link,
+    controllerAs: 'selectable',
+    controller: controller,
+    bindToController: true
+  }
+  
+  function link (scope, element, attrs, controllers) {
+  }
+
+  function controller ($scope) {
+  }
+}

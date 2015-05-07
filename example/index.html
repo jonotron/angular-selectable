@@ -11,42 +11,53 @@
   </head>
 
   <body ng-app="example">
-
-    <div ng-controller="singleSelectCtrl">
-      <h1>Simple Multi-Select</h1>
-
-      <ul>
-        <li ng-repeat="pet in pets"
-            ng-click="selectables.select(pet)">
-          {{ pet }} <span ng-if="selectables.isSelected(pet)">picked me</span>
+    <div ng-controller="exampleSelectCtrl">
+      <h1>Simple Directive Select</h1>
+      <ul jb-selectables>
+        <li ng-repeat="avenger in avengers"
+          jb-selectable="avenger"
+          ng-click="selectables.select(avenger)">
+          {{ avenger }} <span ng-if="selectables.isSelected(avenger)">*</span>
         </li>
       </ul>
-
     </div>
 
-    <div ng-controller="singleSelectCtrl">
-      <h1>Toggleable Multi-Select</h1>
+    <!--<div ng-controller="singleSelectCtrl">-->
+      <!--<h1>Simple Multi-Select</h1>-->
 
-      <ul>
-        <li ng-repeat="pet in pets"
-            ng-click="selectables.toggle(pet)">
-          {{ pet }} <span ng-if="selectables.isSelected(pet)">picked me</span>
-        </li>
-      </ul>
+      <!--<ul jb-selectables>-->
+        <!--<li ng-repeat="pet in pets"-->
+            <!--jb-selectable="pet"-->
+            <!--ng-click="selectables.select(pet)">-->
+          <!--{{ pet }} <span ng-if="selectables.isSelected(pet)">picked me</span>-->
+        <!--</li>-->
+      <!--</ul>-->
 
-    </div>
+    <!--</div>-->
 
-    <div ng-controller="singleSelectCtrl">
-      <h1>Simple Single-Select</h1>
+    <!--<div ng-controller="singleSelectCtrl">-->
+      <!--<h1>Toggleable Multi-Select</h1>-->
 
-      <ul>
-        <li ng-repeat="pet in pets"
-            ng-click="selectables.selectOnly(pet)">
-          {{ pet }} <span ng-if="selectables.isSelected(pet)">picked me</span>
-        </li>
-      </ul>
+      <!--<ul>-->
+        <!--<li ng-repeat="pet in pets"-->
+            <!--ng-click="selectables.toggle(pet)">-->
+          <!--{{ pet }} <span ng-if="selectables.isSelected(pet)">picked me</span>-->
+        <!--</li>-->
+      <!--</ul>-->
 
-    </div>
+    <!--</div>-->
+
+    <!--<div ng-controller="singleSelectCtrl">-->
+      <!--<h1>Simple Single-Select</h1>-->
+
+      <!--<ul>-->
+        <!--<li ng-repeat="pet in pets"-->
+            <!--ng-click="selectables.selectOnly(pet)">-->
+          <!--{{ pet }} <span ng-if="selectables.isSelected(pet)">picked me</span>-->
+        <!--</li>-->
+      <!--</ul>-->
+
+    <!--</div>-->
 
   </body>
 </html>
