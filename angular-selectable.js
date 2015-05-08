@@ -49,6 +49,10 @@ function SelectablesFactory() {
     }
   }
 
+  Selectables.prototype.deselectAll = function() {
+    this.selectables.length = 0; 
+  }
+
   Selectables.prototype.toggle = function(obj) {
     if (this.isSelected(obj)) {
       this.deselect(obj)
