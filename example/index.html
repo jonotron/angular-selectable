@@ -17,22 +17,14 @@
 
       <ul>
         <li ng-repeat="pet in pets"
-            ng-click="selectables.select(pet)">
-          {{ pet }} <span ng-if="selectables.isSelected(pet)">picked me</span>
-        </li>
-      </ul>
-
-    </div>
-
-    <div ng-controller="singleSelectCtrl">
-      <h1>Toggleable Multi-Select</h1>
-
-      <ul>
-        <li ng-repeat="pet in pets"
             ng-click="selectables.toggle(pet)">
           {{ pet }} <span ng-if="selectables.isSelected(pet)">picked me</span>
         </li>
       </ul>
+
+      <button ng-click="selectables.select(pets)">select all</button>
+      <button ng-click="selectables.deselectAll()">deselect all</button>
+      <span>Selected: {{ selectables.getSelected().length }}</span>
 
     </div>
 
@@ -41,7 +33,7 @@
 
       <ul>
         <li ng-repeat="pet in pets"
-            ng-click="selectables.selectOnly(pet)">
+            ng-click="selectables.toggleOnly(pet)">
           {{ pet }} <span ng-if="selectables.isSelected(pet)">picked me</span>
         </li>
       </ul>
