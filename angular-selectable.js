@@ -53,7 +53,14 @@ function SelectablesFactory() {
     this.selectables.length = 0; 
   }
 
-  Selectables.prototype.toggle = function(obj) {
+  Selectables.prototype.toggle = function(obj, toggle) {
+    // if toggle is supplied, just select/deselect as requested
+    if (toggle === true) {
+      return this.select(obj); 
+    } else if (toggle === false) {
+      return this.deselect(obj)
+    }
+
     if (this.isSelected(obj)) {
       this.deselect(obj)
     } else {
@@ -61,7 +68,15 @@ function SelectablesFactory() {
     }
   }
 
-  Selectables.prototype.toggleOnly = function(obj) {
+  Selectables.prototype.toggleOnly = function(obj, toggle) {
+    // if toggle is supplied, deselect if false, selectOnly if true
+    console.log('toggleOnly', obj, toggle);
+    if (toggle === true) {
+      return this.selectOnly(obj);
+    } else if (toggle === false) {
+      return this.deselect(obj)
+    }
+
     if (this.isSelected(obj)) { 
       this.deselect(obj);
     } else {

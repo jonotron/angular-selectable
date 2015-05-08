@@ -1,6 +1,6 @@
 {
   "name": "angular-selectable",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "An angular module for selecting things",
   "main": "angular-selectable.js",
   "scripts": {

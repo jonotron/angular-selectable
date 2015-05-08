@@ -29,14 +29,20 @@
     </div>
 
     <div ng-controller="singleSelectCtrl">
-      <h1>Simple Single-Select</h1>
+      <h1>Checkbox toggle</h1>
 
       <ul>
-        <li ng-repeat="pet in pets"
-            ng-click="selectables.toggleOnly(pet)">
-          {{ pet }} <span ng-if="selectables.isSelected(pet)">picked me</span>
+        <li ng-repeat="pet in pets">
+          <input type="checkbox" 
+            ng-model="checked"
+            ng-change="selectables.toggle(pet, checked)"> 
+          {{ pet }} <span ng-if="selectables.isSelected(pet)">*</span>
+          <span>{{ checked }}</span>
         </li>
       </ul>
+    
+
+      {{ selectables.getSelected() | json }}
 
     </div>
 
