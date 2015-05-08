@@ -5,13 +5,20 @@ angular
 function SelectablesFactory() {
 
   function Selectables(selectables) {
-    this.selectables = typeof(selectables) === 'Array' ? selectables : [];
+    this.selectables = selectables instanceof Array ? selectables : [];
   }
   
-  Selectables.prototype.select = function(obj) {
-    if(this.selectables.indexOf(obj) < 0) {
-      this.selectables.push(obj); 
+  Selectables.prototype.select = function(arr) {
+    if (!(arr instanceof Array)) {
+      arr = [arr];
     }
+
+    var self = this;
+    arr.forEach(function(obj) {
+      if(self.selectables.indexOf(obj) < 0) {
+        self.selectables.push(obj); 
+      }
+    });
   }
 
   Selectables.prototype.selectOnly = function(obj) {
